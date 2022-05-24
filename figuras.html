@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FigurApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    
+    <header>
+        <section class="header-section">
+            <img class="header-section--logo" src="./assets/logo_app.png" alt="logo de la app.">
+            <h1 class="header-section--title" >FigurApp</h1>
+        </section>  
+        <p class="header-section--description">Calcula las medidas de tus figuras geométricas al instante.</p>  
+    </header>
+
+    <main>
+        <section class="main-section--informative">
+            <h3><b>Modo de uso...</b></h3>
+            <p>Para calcular el área o la medida particular de su figura usted deberá introducir el valor que se le pide en cada una de las secciones, luego deberá oprimir el boton que desee para obtener su resultado.</p>
+        </section>
+
+        <section class="section-botones--redireccionar">
+            <p class="section-titulo_botones">Selecciona la figura que necesitas calcular : </p>
+            <div class="container-botones--redireccionar"> 
+                <span class="botones--redireccionar">cuadrado</span>
+                <span class="botones--redireccionar">Triángulo</span>
+                <span class="botones--redireccionar">circulo</span>
+            </div>
+        </section>
+
+<!-- CUADRADO   -   CUADRADO -->
+
+        <section class="section-cuadrado">
+            <div class="section-cuadrado-header">
+                <img src="./assets/cuadrado.png" alt="Figura cuadrado">
+                <h3>CUADRADO</h3>
+            </div>
+            <form class="section-cuadrado--form">
+                <div class="cuadrado-container--input_label">
+                    <input type="number" name="lado" id="InputladoCuadrado" pattern="^[0-9]" min="1"  placeholder="ingresa el valor de un lado" class="section-cuadrado--input">
+                    <label for="InputladoCuadrado" class="section-cuadrado--label_input" > *Ingresa el valor de uno de los lados del cuadrado</label>  
+                </div>
+                <div class="section-cuadrado--buttons">
+                    <button class="buttons" type="button" onclick="calcularPerimetroCuadrado() "> Calcular Perimetro</button>
+                    <button class="buttons" type="button" onclick="calcularAreaCuadrado() "> Calcular Area</button>
+                </div>
+                <div class="container-cuadrado--result">
+                    <p id="resultCuadrado" class="cuadrado-result">  Resultado... </p>
+                </div>
+            </form>
+        </section>
+
+<!-- TRIANGULO   -   TRIANGULO -->
+
+<section class="section-cuadrado">
+    <div class="section-cuadrado-header">
+        <img src="./assets/triangle.png" alt="Figura triángulo">
+        <h3>TRIÁNGULO</h3>
+    </div>
+    <form class="section-cuadrado--form">
+
+        <p> Calcula el área : </p>
+        <div class="triangulo-container--input_label_area">
+            <input type="number" name="base" id="InputBaseTriangulo_1" pattern="^[0-9]" min="1"  placeholder="valor de la base" class="section-cuadrado--input">
+            <input type="number" name="altura" id="InputAlturaTriangulo" pattern="^[0-9]" min="1"  placeholder="valor de la altura" class="section-cuadrado--input">
+            <label for="InputBaseTriangulo_1" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+        </div>
+        <div class="section-cuadrado--buttons">
+            <button class="buttons" type="button" onclick="calcularAreaTriangulo() "> Calcular Area</button>
+        </div>
+        <div class="container-cuadrado--result">
+            <p id="resultTriangulo_1" class="cuadrado-result">  Resultado... </p>
+        </div>
+
+        <p> Calcula el perimetro : </p>
+        <div class="triangulo-container--input_label_area">
+            <input type="number" name="base" id="InputLadoTriangulo" pattern="^[0-9]" min="1"  placeholder="valor un lado" class="section-cuadrado--input">
+            <input type="number" name="altura" id="InputBaseTriangulo_2" pattern="^[0-9]" min="1"  placeholder="valor de la base" class="section-cuadrado--input">
+            <label for="InputLadoTriangulo" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+        </div>
+        <div class="section-cuadrado--buttons">
+            <button class="buttons" type="button" onclick="calcularPerimetroTriangulo() "> Calcular perimetro</button>
+        </div>
+
+        <div class="container-cuadrado--result">
+            <p id="resultTriangulo_2" class="cuadrado-result">  Resultado... </p>
+        </div>
+    </form>
+</section>
+
+<!-- CIRCULO   -   CIRCULO   -   CIRCULO   - -->
+
+<section class="section-cuadrado">
+    <div class="section-cuadrado-header">
+        <img src="./assets/circulo.png" alt="Figura circulo">
+        <h3>CIRCULO</h3>
+    </div>
+    <form class="section-cuadrado--form">
+
+        <p> Calcula el diámetro : </p>
+        <div class="triangulo-container--input_label_area">
+            <input type="number" name="radio1" id="InputRadio_1" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
+            <label for="InputRadio_1" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+        </div>
+        <div class="section-cuadrado--buttons">
+            <button class="buttons" type="button" onclick="calcularDiametroCirculo()  "> Calcular Diámetro</button>
+        </div>
+        <div class="container-cuadrado--result">
+            <p id="resultCirculo_1" class="cuadrado-result">  Resultado... </p>
+        </div>
+
+        <p> Calcula la circunferencia : </p>
+        <div class="triangulo-container--input_label_area">
+            <input type="number" name="radio2" id="InputRadio_2" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
+            <label for="InputRadio_2" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+        </div>
+        <div class="section-cuadrado--buttons">
+            <button class="buttons" type="button" onclick="calcularCircunferencia()"> Calcular circunferencia</button>
+        </div>
+
+        <div class="container-cuadrado--result">
+            <p id="resultCirculo_2" class="cuadrado-result">  Resultado... </p>
+        </div>
+
+        <p> Calcula el área : </p>
+        <div class="triangulo-container--input_label_area">
+            <input type="number" name="radio3" id="InputRadio_3" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
+            <label for="InputRadio_3" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+        </div>
+        <div class="section-cuadrado--buttons">
+            <button class="buttons" type="button" onclick="calcularAreaCirculo() ">Calcular Área</button>
+        </div>
+
+        <div class="container-cuadrado--result">
+            <p id="resultCirculo_3" class="cuadrado-result">  Resultado... </p>
+        </div>
+    </form>
+
+</section>
+    </main>
+
+    <footer>
+
+        <section class="footer-section--left">
+            <div class="container-logoMedia">
+                <img src="./assets/linkedin.png" alt="logo_social_media" class="logo_media"> <a href="#">Linkedin </a> 
+            </div>
+            <div class="container-logoMedia">
+                <img src="./assets/github.png" alt="logo_social_media" class="logo_media"> <a href="#">GitHub </a> 
+            </div>
+            <div class="container-logoMedia">
+                <img src="./assets/instagram.png" alt="logo_social_media" class="logo_media"> <a href="#">Instagram </a> 
+            </div>
+            <div class="container-logoMedia">
+                <img src="./assets/whatsapp.png" alt="logo_social_media" class="logo_media"> <a href="#">Whatsapp </a> 
+            </div>
+        
+    </section>
+
+    <section class="footer-section--center">
+        <img class="header-section--logo" src="./assets/logo_app.png" alt="logo de la app.">
+        <h1 class="header-section--title" >FigurApp</h1>
+        <p> By : Daniel Martinez </p>
+    </section>
+
+
+    <section class="footer-section--right">
+        <p>Proximamente sección de figuras en 3D. </p>
+    </section>
+
+    </footer>
+
+    <script src="./figuras.js"></script>
+</body>
+</html>

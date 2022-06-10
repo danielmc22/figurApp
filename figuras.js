@@ -2,16 +2,16 @@
 const campoResultadoCuadrado = document.getElementById("resultCuadrado")
 const campoResultadoTriangulo_1 = document.getElementById("resultTriangulo_1")
 const campoResultadoTriangulo_2 = document.getElementById("resultTriangulo_2")
-const campoResultadoCirculo_1 = document.getElementById("resultCirculo_1")
-const campoResultadoCirculo_2 = document.getElementById("resultCirculo_2")
-const campoResultadoCirculo_3 = document.getElementById("resultCirculo_3")
+const campoResultadoCirculo = document.getElementById("resultCirculo_1")
+const campoResultadoPrisma_1 = document.getElementById("resultPrisma_1")
+const campoResultadoPrisma_2 = document.getElementById("resultPrisma_2")
 
 var resultCuadrado = ""
 var resultTrianguloArea = ""
 var resultTrianguloPerimetro = ""
-var resultCirculoDiametro = ""
-var resultCirculoCircunferencia = ""
-var resultCirculoArea = ""
+var resultCirculo = ""
+var resultPrismaArea = ""
+var resultPrismaVolumen = ""
 
 
 //  CUADRADO
@@ -44,10 +44,20 @@ function circunferenciaCirculox(radio){
     return ((diametro) * PI).toFixed(2) 
 }
 
-
 function areaCirculox (radio){
     return ((radio * radio) * PI).toFixed(2)
 }
+
+//  PRISMA RECTANGULAR
+function areaPrismaRectangular (altura, base, profundidad) {
+    return (2 * (profundidad + base) * altura) + 2 * (base * profundidad)
+}
+
+
+function volumenPrismaRectangular (altura, base, profundidad) {
+    return (altura * base * profundidad)
+}
+
 
 
 // html html html  --  CUADRADO  -  CUADRADO  -  CUADRADO  -  CUADRADO  -  CUADRADO  -  CUADRADO
@@ -99,25 +109,53 @@ function calcularDiametroCirculo() {
     const valueRadio_1 = inputRadio_1.value
 
     const diametroCirculo = diametroCirculox(valueRadio_1)
-    resultCirculoDiametro = "El diámetro del circulo es :" + diametroCirculo
-    campoResultadoCirculo_1.innerHTML = resultCirculoDiametro
+    resultCirculo = "El diámetro del circulo es :" + diametroCirculo
+    campoResultadoCirculo.innerHTML = resultCirculo
 }
 
 function calcularCircunferencia() {
-    const inputRadio_2 = document.getElementById("InputRadio_2")
-    const valueRadio_2 = inputRadio_2.value
-    const circunferencia = circunferenciaCirculox(valueRadio_2)
+    inputRadio_1 = document.getElementById("InputRadio_1")
+    valueRadio_1 = inputRadio_1.value
+    const circunferencia = circunferenciaCirculox(valueRadio_1)
 
-    resultCirculoCircunferencia = "La circunferencia es : " + circunferencia
-    campoResultadoCirculo_2.innerHTML = resultCirculoCircunferencia
+    resultCirculo = "La circunferencia es : " + circunferencia
+    campoResultadoCirculo.innerHTML = resultCirculo
 }
 
 function calcularAreaCirculo() {
-    const inputRadio_3 = document.querySelector("#InputRadio_3")
-    const valueRadio_3 = inputRadio_3.value
-    const areaCirculo = areaCirculox(valueRadio_3)
+    inputRadio_1 = document.querySelector("#InputRadio_1")
+    valueRadio_1 = inputRadio_1.value
+    const areaCirculo = areaCirculox(valueRadio_1)
 
-    resultCirculoArea = "El área del circulo es : " + areaCirculo
-    campoResultadoCirculo_3.innerHTML = resultCirculoArea
+    resultCirculo = "El área del circulo es : " + areaCirculo
+    campoResultadoCirculo.innerHTML = resultCirculo
+}
 
+// html html html  --  PRISMA RECTANGULO  --  PRISMA RECTANGULO  --  PRISMA RECTANGULO  --
+function calcularAreaPrisma () {
+    var inputAltura = document.getElementById("inputAltura")
+    var inputBase = document.getElementById("inputBase")
+    var inputProfundidad = document.getElementById("inputProfundidad")
+    var valueAltura = inputAltura.value
+    var valueBase = inputBase.value
+    var valueProfundidad = inputProfundidad.value
+
+    const areaPrisma = areaPrismaRectangular(valueAltura, valueBase, valueProfundidad)
+
+    resultPrismaArea = "El área del Prisma es: " + areaPrisma + " cm2"
+    campoResultadoPrisma_1.innerHTML = resultPrismaArea
+}
+
+function calcularVolumenPrisma () {
+    var inputAltura = document.getElementById("inputAltura")
+    var inputBase = document.getElementById("inputBase")
+    var inputProfundidad = document.getElementById("inputProfundidad")
+    var valueAltura = inputAltura.value
+    var valueBase = inputBase.value
+    var valueProfundidad = inputProfundidad.value
+
+    const volumenPrisma = volumenPrismaRectangular(valueAltura, valueBase, valueProfundidad)
+
+    resultPrismaVolumen = "El volumen del prisma es: " + volumenPrisma + " ∧3"
+    campoResultadoPrisma_1.innerHTML = resultPrismaVolumen
 }

@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon" href="./assets/favIcon.png">
 </head>
 <body>
     
@@ -33,22 +34,25 @@
         <section class="section-botones--redireccionar">
             <p class="section-titulo_botones">Selecciona la figura que necesitas calcular : </p>
             <div class="container-botones--redireccionar"> 
-                <span class="botones--redireccionar">cuadrado</span>
-                <span class="botones--redireccionar">Triángulo</span>
-                <span class="botones--redireccionar">circulo</span>
+                <span class="botones--redireccionar" > <a href="#cuadrado">Cuadrado</a> </span>
+                <span class="botones--redireccionar"> <a href="#triangulo">Triángulo</a></span>
+                <span class="botones--redireccionar"> <a href="#circulo">circulo</a></span>
+                <span class="botones--redireccionar"> <a href="#prisma">Prisma</a></span>
+                
             </div>
         </section>
 
 <!-- CUADRADO   -   CUADRADO -->
 
-        <section class="section-cuadrado">
+        <section class="section-cuadrado" id="cuadrado">
             <div class="section-cuadrado-header">
                 <img src="./assets/cuadrado.png" alt="Figura cuadrado">
                 <h3>CUADRADO</h3>
             </div>
             <form class="section-cuadrado--form">
+                <p> Realiza tu cálculo : </p>
                 <div class="cuadrado-container--input_label">
-                    <input type="number" name="lado" id="InputladoCuadrado" pattern="^[0-9]" min="1"  placeholder="ingresa el valor de un lado" class="section-cuadrado--input">
+                    <input type="number" name="lado" id="InputladoCuadrado" pattern="^[0-9]" min="1"  placeholder="Valor de un lado" class="section-cuadrado--input">
                     <label for="InputladoCuadrado" class="section-cuadrado--label_input" > *Ingresa el valor de uno de los lados del cuadrado</label>  
                 </div>
                 <div class="section-cuadrado--buttons">
@@ -61,9 +65,34 @@
             </form>
         </section>
 
+        <!-- CIRCULO   -   CIRCULO   -   CIRCULO   - -->
+
+        <section class="section-cuadrado" id="circulo">
+            <div class="section-cuadrado-header">
+                <img src="./assets/circulo.png" alt="Figura circulo">
+                <h3>CIRCULO</h3>
+            </div>
+            <form class="section-cuadrado--form">
+
+                <p> Realiza tu cálculo : </p>
+                <div class="triangulo-container--input_label_area">
+                    <input type="number" name="radio1" id="InputRadio_1" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
+                    <label for="InputRadio_1" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+                </div>
+                <div class="section-cuadrado--buttons">
+                    <button class="buttons button-circulo" type="button" onclick="calcularDiametroCirculo()  "> Calcular Diámetro</button>
+                    <button class="buttons button-circulo" type="button" onclick="calcularCircunferencia()"> Calcular circunferencia</button>
+                    <button class="buttons button-circulo" type="button" onclick="calcularAreaCirculo() ">Calcular Área</button>
+                </div>
+                <div class="container-cuadrado--result">
+                    <p id="resultCirculo_1" class="cuadrado-result">  Resultado... </p>
+                </div>
+            </form>
+        </section>
+
 <!-- TRIANGULO   -   TRIANGULO -->
 
-<section class="section-cuadrado">
+<section class="section-cuadrado" id="triangulo">
     <div class="section-cuadrado-header">
         <img src="./assets/triangle.png" alt="Figura triángulo">
         <h3>TRIÁNGULO</h3>
@@ -99,84 +128,68 @@
     </form>
 </section>
 
-<!-- CIRCULO   -   CIRCULO   -   CIRCULO   - -->
 
-<section class="section-cuadrado">
+<!-- PRISMA RECTANGULAR  -   PRISMA RECTANGULAR   -  PRISMA RECTANGULAR   - -->
+
+<section class="section-cuadrado" id="prisma">
     <div class="section-cuadrado-header">
-        <img src="./assets/circulo.png" alt="Figura circulo">
-        <h3>CIRCULO</h3>
+        <img src="./assets/rectangular.png" alt="Figura prisma rectangular">
+        <h3>PRISMA RECTANGULAR</h3>
     </div>
-    <form class="section-cuadrado--form">
 
-        <p> Calcula el diámetro : </p>
+    <form class="section-cuadrado--form section-prisma--form ">
+        <p> Realiza tu cálculo : </p>
         <div class="triangulo-container--input_label_area">
-            <input type="number" name="radio1" id="InputRadio_1" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
-            <label for="InputRadio_1" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
+            <input type="number" name="base" id="inputAltura" pattern="^[0-9]" min="1"  placeholder="valor altura" class="section-cuadrado--input">
+            <input type="number" name="ancho" id="inputBase" pattern="^[0-9]" min="1"  placeholder="valor de la base" class="section-cuadrado--input">
+            <input type="number" name="altura" id="inputProfundidad" pattern="^[0-9]" min="1"  placeholder="valor profundidad" class="section-cuadrado--input">
+            <label for="inputAltura" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
         </div>
         <div class="section-cuadrado--buttons">
-            <button class="buttons" type="button" onclick="calcularDiametroCirculo()  "> Calcular Diámetro</button>
+            <button class="buttons" type="button" onclick="calcularAreaPrisma() "> Calcular Area </button>
+            <button class="buttons" type="button" onclick="calcularVolumenPrisma() "> Calcular Volumen </button>
         </div>
         <div class="container-cuadrado--result">
-            <p id="resultCirculo_1" class="cuadrado-result">  Resultado... </p>
-        </div>
-
-        <p> Calcula la circunferencia : </p>
-        <div class="triangulo-container--input_label_area">
-            <input type="number" name="radio2" id="InputRadio_2" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
-            <label for="InputRadio_2" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
-        </div>
-        <div class="section-cuadrado--buttons">
-            <button class="buttons" type="button" onclick="calcularCircunferencia()"> Calcular circunferencia</button>
-        </div>
-
-        <div class="container-cuadrado--result">
-            <p id="resultCirculo_2" class="cuadrado-result">  Resultado... </p>
-        </div>
-
-        <p> Calcula el área : </p>
-        <div class="triangulo-container--input_label_area">
-            <input type="number" name="radio3" id="InputRadio_3" pattern="^[0-9]" min="1"  placeholder="valor del radio" class="section-cuadrado--input">
-            <label for="InputRadio_3" class="section-cuadrado--label_input" > *Ingresa el valor solicitado en cada uno de los campos</label>  
-        </div>
-        <div class="section-cuadrado--buttons">
-            <button class="buttons" type="button" onclick="calcularAreaCirculo() ">Calcular Área</button>
-        </div>
-
-        <div class="container-cuadrado--result">
-            <p id="resultCirculo_3" class="cuadrado-result">  Resultado... </p>
+            <p id="resultPrisma_1" class="cuadrado-result">  Resultado... </p>
         </div>
     </form>
 
 </section>
+
+
     </main>
 
     <footer>
 
+        <section class="footer-section--center">
+            <img class="header-section--logo logo-footer" src="./assets/logo_app.png" alt="logo de la app.">
+            <h1 class="header-section--title tittle-logo" >FigurApp</h1>
+            <p> By : Daniel Martinez </p>
+        </section>
+
         <section class="footer-section--left">
             <div class="container-logoMedia">
-                <img src="./assets/linkedin.png" alt="logo_social_media" class="logo_media"> <a href="#">Linkedin </a> 
+                <img src="./assets/linkedin.png" alt="logo_social_media" class="logo_media"> <a href="https://www.linkedin.com/in/daniel-mart%C3%ADnez-casta%C3%B1eda-8b363b15a/" target="_blank">Linkedin </a> 
             </div>
             <div class="container-logoMedia">
-                <img src="./assets/github.png" alt="logo_social_media" class="logo_media"> <a href="#">GitHub </a> 
+                <img src="./assets/github.png" alt="logo_social_media" class="logo_media"> <a href="https://github.com/danielmc22" target="_blank">GitHub </a> 
             </div>
             <div class="container-logoMedia">
-                <img src="./assets/instagram.png" alt="logo_social_media" class="logo_media"> <a href="#">Instagram </a> 
+                <img src="./assets/instagram.png" alt="logo_social_media" class="logo_media"> <a href="https://www.instagram.com/daniel.mc22/" target="_blank">Instagram </a> 
             </div>
             <div class="container-logoMedia">
-                <img src="./assets/whatsapp.png" alt="logo_social_media" class="logo_media"> <a href="#">Whatsapp </a> 
+                <img src="./assets/whatsapp.png" alt="logo_social_media" class="logo_media"> <a href="http://wa.link/jabw3p" target="_blank">Whatsapp </a> 
+            </div>
+
+            <div class="container-logoMedia">
+                 <p> Contacto  </p> 
             </div>
         
     </section>
 
-    <section class="footer-section--center">
-        <img class="header-section--logo" src="./assets/logo_app.png" alt="logo de la app.">
-        <h1 class="header-section--title" >FigurApp</h1>
-        <p> By : Daniel Martinez </p>
-    </section>
-
 
     <section class="footer-section--right">
-        <p>Proximamente sección de figuras en 3D. </p>
+        <p>Proximamente más figuras disponibles. </p>
     </section>
 
     </footer>
